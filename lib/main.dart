@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isalmi/routes/home/home.dart';
+import 'package:isalmi/routes/sura_details/sura_details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         Home.routename:(_)=>Home(),
+        SuraDetails.routeName:(_)=>SuraDetails(),
 
       },
       initialRoute: Home.routename,

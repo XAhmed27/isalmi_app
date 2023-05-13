@@ -2,6 +2,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:isalmi/model/sura_details_args.dart';
+import 'package:isalmi/routes/sura_details/sura_details.dart';
 import 'package:isalmi/utlis/app_colors.dart';
 
 class  QuranTab  extends StatelessWidget {
@@ -37,7 +39,7 @@ class  QuranTab  extends StatelessWidget {
                     return Column(
                        crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        BuildSoraNames(index),
+                        BuildSoraNames(index,context),
                         Divider(height: 5,thickness: 4,color: Appcolours.primarycolor),
                       ],
                     );
@@ -48,11 +50,17 @@ class  QuranTab  extends StatelessWidget {
       ),
     );
   }
-  Widget BuildSoraNames(int index){
-    return Text(soraNames[index],
-      textAlign: TextAlign.center,
-      style:TextStyle(fontSize: 27,
-          fontWeight: FontWeight.bold)
-      );
+  Widget BuildSoraNames(int index,BuildContext context){
+    return InkWell(
+      onTap: (){
+        Navigator.pushNamed(context, SuraDetails.routeName,arguments: SuraDetailsArgs("${index+1}.txt",soraNames[index]));
+
+      },
+      child: Text(soraNames[index],
+        textAlign: TextAlign.center,
+        style:TextStyle(fontSize: 27,
+            fontWeight: FontWeight.bold)
+        ),
+    );
   }
 }
