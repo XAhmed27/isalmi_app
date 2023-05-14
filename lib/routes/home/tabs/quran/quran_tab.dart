@@ -28,8 +28,8 @@ class  QuranTab  extends StatelessWidget {
             flex: 3,
               child: Image.asset("assets/qur2an_screen_logo.png")),
           Divider(height: 5,thickness: 4,color: Appcolours.primarycolor),
-          SizedBox(height: 10,),
-           Text("اسم سوره",textAlign: TextAlign.center,style:TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
+          const SizedBox(height: 10,),
+           const Text("اسم سوره",textAlign: TextAlign.center,style:TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
           Divider(height: 5,thickness: 4,color: Appcolours.primarycolor),
           Expanded(
             flex: 7,

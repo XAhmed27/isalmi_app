@@ -17,7 +17,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int index=0;
+  int index=1;
   List <Widget> Tabs=
   [
     QuranTab(),
