@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isalmi/routes/home/home.dart';
+import 'package:isalmi/routes/home/splash_screen/splash_screen.dart';
 import 'package:isalmi/routes/sura_details/sura_details.dart';
 
 void main() {
@@ -14,11 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
+        SplashScreen.routename:(_)=>SplashScreen(),
         Home.routename:(_)=>Home(),
         SuraDetails.routeName:(_)=>SuraDetails(),
-
       },
-      initialRoute: Home.routename,
+      initialRoute: SplashScreen.routename,
 
 
     );
