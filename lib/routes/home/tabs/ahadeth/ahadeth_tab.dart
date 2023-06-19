@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:isalmi/model/hadeth.dart';
+import 'package:isalmi/routes/ahadeth_details/ahadeth_details.dart';
 
 import '../../../../utlis/app_colors.dart';
 
@@ -69,7 +70,8 @@ class _AhadethTabState extends State<AhadethTab> {
   Widget BuildHadethNames(int index,BuildContext context){
     return InkWell(
       onTap: (){
-        //Navigator.pushNamed(context, SuraDetails.routeName,arguments: SuraDetailsArgs("${index+1}.txt",soraNames[index]));
+        Navigator.pushNamed(context, AhadethDetails.routeName,arguments:
+        hadethlist[index]);
 
       },
       child: Text(hadethlist[index].title,
