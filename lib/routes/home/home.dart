@@ -6,6 +6,7 @@ import 'package:isalmi/routes/home/tabs/ahadeth/ahadeth_tab.dart';
 import 'package:isalmi/routes/home/tabs/quran/quran_tab.dart';
 import 'package:isalmi/routes/home/tabs/radio/radio_tab.dart';
 import 'package:isalmi/routes/home/tabs/sebha/sebha_tab.dart';
+import 'package:isalmi/routes/home/tabs/setting/setting.dart';
 import 'package:isalmi/utlis/app_colors.dart';
 
 class Home extends StatefulWidget {
@@ -24,6 +25,7 @@ class _HomeState extends State<Home> {
     AhadethTab(),
     RadioTab(),
     SebhaTab(),
+    SettingTab(),
   ];
 
   @override
@@ -56,7 +58,7 @@ class _HomeState extends State<Home> {
               selectedFontSize: 12,
               iconSize: 36,
               selectedItemColor: Appcolours.accentcolor,
-              items: [
+              items: const [
                 BottomNavigationBarItem(
                     label: "quran",
                     icon: ImageIcon(
@@ -81,6 +83,10 @@ class _HomeState extends State<Home> {
                         AssetImage("assets/radio_icon.png")
 
                     )),
+                BottomNavigationBarItem(
+                    label: "Setting",
+                    icon: Icon(Icons.settings)
+                    ),
               ],
         )
 
