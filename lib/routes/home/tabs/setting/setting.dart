@@ -7,9 +7,14 @@ import 'package:isalmi/routes/home/tabs/setting/language_bottom_sheet.dart';
 import 'package:isalmi/utlis/app_colors.dart';
 import 'package:provider/provider.dart';
 
-class SettingTab   extends StatelessWidget {
+class SettingTab   extends StatefulWidget {
 
 
+  @override
+  State<SettingTab> createState() => _SettingTabState();
+}
+
+class _SettingTabState extends State<SettingTab> {
   @override
   Widget build(BuildContext context) {
     SettingProvider provider=Provider.of(context);
@@ -43,6 +48,7 @@ class SettingTab   extends StatelessWidget {
       ),
     );
   }
+
   Widget CreateRow(String rowName)
   {
     return Container(
@@ -56,9 +62,9 @@ class SettingTab   extends StatelessWidget {
            Padding(
              padding: const EdgeInsets.all(8.0),
              child: Text(rowName,
-                style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,),),
+                style: Theme.of(context).textTheme.titleSmall,
            ),
-        //S  ),
+           ),
           Icon(Icons.arrow_drop_down),
         ],
       ),

@@ -29,8 +29,9 @@ class  QuranTab  extends StatelessWidget {
               child: Image.asset("assets/qur2an_screen_logo.png")),
           Divider(height: 5,thickness: 4,color: Appcolours.primarycolor),
           const SizedBox(height: 10,),
-           const Text("اسم سوره",textAlign: TextAlign.center,
-             style:TextStyle(fontSize: 27,fontWeight: FontWeight.bold),),
+            Text("اسم سوره",textAlign: TextAlign.center,
+             style:Theme.of(context).textTheme.bodySmall,
+           ),//bodysmall
           Divider(height: 5,thickness: 4,color: Appcolours.primarycolor),
           Expanded(
             flex: 7,
@@ -59,8 +60,7 @@ class  QuranTab  extends StatelessWidget {
       },
       child: Text(soraNames[index],
         textAlign: TextAlign.center,
-        style:TextStyle(fontSize: 27,
-            fontWeight: FontWeight.bold)
+        style:Theme.of(context).textTheme.bodyMedium
         ),
     );
   }

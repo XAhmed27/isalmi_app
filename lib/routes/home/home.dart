@@ -2,12 +2,14 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:isalmi/provider/settingprovider.dart';
 import 'package:isalmi/routes/home/tabs/ahadeth/ahadeth_tab.dart';
 import 'package:isalmi/routes/home/tabs/quran/quran_tab.dart';
 import 'package:isalmi/routes/home/tabs/radio/radio_tab.dart';
 import 'package:isalmi/routes/home/tabs/sebha/sebha_tab.dart';
 import 'package:isalmi/routes/home/tabs/setting/setting.dart';
 import 'package:isalmi/utlis/app_colors.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   static String routename="home";
@@ -30,23 +32,22 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    SettingProvider provider=Provider.of(context);
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage("assets/bg_home.png"),fit: BoxFit.fill)
+        image: DecorationImage(image: AssetImage(provider.currentTheme==ThemeMode.light?
+        "assets/bg_home.png":"assets/dark_bg.png"),fit: BoxFit.fill)
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor:Theme.of(context).scaffoldBackgroundColor ,
         appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
-         title: Text("اسلامي",style:TextStyle(color: Appcolours.accentcolor,
-             fontSize:30,fontWeight: FontWeight.bold ) )
+         elevation: 0,
+         backgroundColor: Colors.transparent,
+         centerTitle: true,
+         title: Text("اسلامي",style:Theme.of(context).appBarTheme.titleTextStyle)
         ),
         body: Tabs[index],
-        bottomNavigationBar:Theme(
-          data: Theme.of(context).copyWith(canvasColor: Appcolours.primarycolor),
-            child:BottomNavigationBar(
+        bottomNavigationBar:BottomNavigationBar(
               currentIndex: index,
               onTap: (chosenposition){
                 index=chosenposition;
@@ -54,10 +55,6 @@ class _HomeState extends State<Home> {
                 });
 
               },
-              showUnselectedLabels: false,
-              selectedFontSize: 12,
-              iconSize: 36,
-              selectedItemColor: Appcolours.accentcolor,
               items: const [
                 BottomNavigationBarItem(
                     label: "quran",
@@ -89,9 +86,8 @@ class _HomeState extends State<Home> {
                     ),
               ],
         )
-
         ),
-      ),
-    );
+      );
+
   }
 }

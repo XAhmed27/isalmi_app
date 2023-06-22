@@ -12,6 +12,7 @@ class LanguagBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     SettingProvider provider=Provider.of(context);
     return  Container(
+      color: Appcolours.white,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
