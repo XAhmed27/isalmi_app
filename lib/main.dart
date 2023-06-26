@@ -7,7 +7,8 @@ import 'package:isalmi/routes/home/splash_screen/splash_screen.dart';
 import 'package:isalmi/routes/sura_details/sura_details.dart';
 import 'package:isalmi/utlis/app_theme.dart';
 import 'package:provider/provider.dart';
-void main() {
+void main() async{
+  // Obtain shared preferences.
   runApp( ChangeNotifierProvider(
     create: (_)=>SettingProvider(),
       child: MyApp()));
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingProvider provider=Provider.of(context);
+
+
+
     return MaterialApp(
       themeMode: provider.currentTheme,
       theme: AppTheme.lightTheme,

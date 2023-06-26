@@ -16,6 +16,7 @@ class SettingTab   extends StatefulWidget {
 
 class _SettingTabState extends State<SettingTab> {
   @override
+  bool switchvalue=false;
   Widget build(BuildContext context) {
     SettingProvider provider=Provider.of(context);
     return Container(
@@ -33,14 +34,24 @@ class _SettingTabState extends State<SettingTab> {
                 onclickedlanguage(context);
               },
                 child: CreateRow(provider.currentlocale == "en"?"English":"العربيه")),
-            SizedBox(height: 22,),
-            Text("Mode"),
-            SizedBox(height: 22,),
-            InkWell(
-              onTap: (){
-                onclickedTheme(context);
-              },
-                child: CreateRow("Light")),
+            SizedBox(height: 15,),
+            Row(
+              children: [
+                Text("DarkMode"),
+                Spacer(),
+                Switch(value: switchvalue, onChanged: (newvalue){
+                  switchvalue=newvalue;
+                  if(switchvalue){
+                    provider.changeCurrentTheme(ThemeMode.dark);
+                  }else {
+                    provider.changeCurrentTheme(ThemeMode.light);
+                  }
+
+                }),
+              ],
+            ),
+
+
             //Spacer(flex: 8,),
 
           ],
